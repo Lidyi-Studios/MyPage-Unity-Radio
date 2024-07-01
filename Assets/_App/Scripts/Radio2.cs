@@ -10,8 +10,6 @@ using UnityEngine.UI;
 public class Radio2 : MonoBehaviour
 {
     [DllImport("__Internal")]
-    private static extern void LoadAudio();
-    [DllImport("__Internal")]
     private static extern void PlayAudio();
     [DllImport("__Internal")]
     private static extern void PauseAudio();
@@ -24,7 +22,6 @@ public class Radio2 : MonoBehaviour
     private void Awake()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
-        LoadAudio();
         _playButton.onClick.AddListener(() =>
         {
             if (_playImage.sprite == _playSprite)
@@ -41,14 +38,5 @@ public class Radio2 : MonoBehaviour
 #else
         Debug.Log("Streaming only supported in WebGL builds.");
 #endif
-    }
-    
-    // Función para recibir datos de frecuencia desde JavaScript
-    [MonoPInvokeCallback(typeof(Action<string>))]
-    public static void ReceiveAudioData(string data)
-    {
-        float[] frequencies = Array.ConvertAll(data.Split(','), float.Parse);
-        // Aquí puedes procesar los datos de frecuencia
-        Debug.Log("Datos de frecuencia recibidos: " + string.Join(", ", frequencies));
     }
 }
