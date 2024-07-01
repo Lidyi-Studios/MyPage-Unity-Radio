@@ -11,7 +11,7 @@ using UnityEngine.UI;
 /// </summary>
 public class Radio : MonoBehaviour
 {
-    private readonly string _url = "https://lidyi.com/radio/server.mp3";
+    private readonly string _url = "http://stream.radioparadise.com/ogg-192";
     /// <summary>
     /// The MediaFoundationReader for audio processing.
     /// </summary>
