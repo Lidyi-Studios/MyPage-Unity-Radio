@@ -126,7 +126,8 @@
 						// Evitar el almacenamiento en caché de la URL del audio
 						src: 'https://lidyi.com/radio/server.mp3' + '?' + new Date().getTime(),
 						format: ['mp3'],
-						html5: true // Asegura que el audio se cargue como HTML5 Audio
+						html5: true, // Asegura que el audio se cargue como HTML5 Audio
+						volume: 0.5
 					});
 
 					sound.on('loaderror', function(id, error) {
